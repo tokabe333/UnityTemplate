@@ -1,0 +1,44 @@
+コーディング規則
+・省略可能な場所でも this をつけて記述する(メンバ変数とひと目でわかるため)
+・#Regionは使わない(ブラックボックスの挙動は作らない，IDEの機能でブロック単位でたためるため不要)
+・
+・if,else,forなどは1行のみの記述でも中括弧を省略しない
+・if,else,for,クラスの開始やメソッドの開始の中括弧は改行しない
+  etc. if(a == b) {
+	}
+
+・if,else,for,クラスの終了，メソッドの終了などの中括弧の閉じるときは End_○○と記述する(階層が増えるとどの中括弧が対応しているか分かりづらくなるため)
+・メソッドやクラスの前には summary で説明を記述する(VisualStudioで機能説明をすぐに見られるため，summaryはVisualStudioならメソッドやクラス名の前の行で / を3つ書くと自動で挿入されます)
+  etc.
+
+  ///<summary>
+  ///サンプルクラス
+  ///</summary>
+  ///<param name="width">○○の横幅</param>
+  ///<param name="height">○○の高さ</param>
+  ///<returns>なんか処理した結果</returns>
+  class Sample {
+    private int Example(int width, int height) {
+      if(a == b) {
+        return a + b;
+      else if(a < b) {
+        return a * c;
+      else {
+        return a / c;
+      } //End_IfElse
+      
+      for(int i = 0; i < 3; ++i) {
+        Console.WriteLine(i);
+      } //End_For
+    } //End_Method
+  } //End_Class
+
+命名規則
+ ・ローカル変数(一時変数) : LowerCamel
+ ・クラス名，メソッド名，コンストラクタ名，メンバ変数名，デリゲート名，イベント名，プロパティ名などその他はすべてUpperCamel
+ ・メソッド名は 動詞名詞 の形式  etc. GetTranslate()， CreateCharacterObject() 
+ ・ハンガリアン記法は使わない(IDEの機能で型はすぐにわかるため)
+ ・頭文字を取った変数名やメソッド名は使わない etc. ○→ConnectServerWithTcp　×CSWT
+ ・変数名は長くなっても極力省略しない(IDEの機能で補完すればすべて打たなくても予測変換でき，名前を見ただけで内容が予測できるため)
+
+
